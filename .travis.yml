@@ -1,0 +1,21 @@
+sudo: required
+
+dist: trusty
+
+language: generic
+
+install:
+  - sudo apt-get install parallel
+
+script:
+  - ./shoutcast.sh
+
+deploy:
+  provider: releases
+  api_key:
+    secure: cIMxmCKZjRartVVRvOKeEDUATn6FDyQzip6NyD2SHdswN/sfsU4IJt8ScYZBglt/0/1kKdztG1y+/ELqIgfQlU4Us5ZKIkewZN64waXso02TtghYykO88QYSC41lxLvAdF7zQspev1G/49aUWtNgzPzw5iOtJtH/SMVg++NXwxe6L1QB5etQ7Ndj8Mr0w9r1lAq+1DV06FV5fpl6YPOQgwPtREc5l+I7dao21YKnoBgpMTdxBqahCpSpH7PJSODYht4lyrCzQcy3z89UrA0EfQ65/RoCOwWgtm/rG0QaBz+alnRhyHbqp9rwYmh5KcKfP7mintOua+J1OwXtXvxXRPo+oOJaT2IsJ5vwYaDLal39YsCUDEqjL3ymoVcO08qwcWZdxyF2hqBaJrCG8m7AE748cB5KamJ0MWh5tXVV1ubCPLEwdy794oB7xfJacezp0iIEMjw9yxAK+7v8dfekL8iOgexKYKPqn1+KH8E15av9NW5gRdEXA8urlYvLFHboAyy1kwvhxTZVXXBRitU4Orvns7Dn2i2Xu4+8VBiSQ0doJMZPb3sc0mOVwfyPvy48biULS/Akk2t5D5jCGZntk4plfWgYCTMcOGNFhhGWGGAUE7wg4g65Nom6Jqetn5R49i60oH2AYmCFMRX0MdDIhtiPJaN4kWCkDLJd//PAorc=
+  file_glob: true
+  file: shoutcast_*.m3u.gz
+  skip_cleanup: true
+  on:
+    tags: true
